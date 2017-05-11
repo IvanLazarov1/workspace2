@@ -7,7 +7,7 @@
 
 using namespace std;
 
-Start::Start(string data  , string hour  , string type ){
+Start::Start(string data  , string hour  , string type){
 
     m_data = data;
     m_hour = hour;
@@ -90,15 +90,20 @@ void Start::searchByDiscipline(string disciplineName) {
 
 void Start::searchAthlet(string name){
 
+	bool found = false;
+
     for (size_t i = 0 ; i < m_athletes.size(); i++) {
         if (m_athletes.at(i).getFName() == name) {
             m_athletes.at(i).printInfo();
+            found = true;
         }
-        else{
-            cout << "athlet not found " << endl ;
-        }
-
     }
+
+	if (!found)
+	{
+		cout << "Athlet not found!" <<endl;
+	}
+
 }
 
 void Start::addDisciplines(string disciplineName, double worldRecord,
@@ -111,19 +116,12 @@ void Start::addDisciplines(string disciplineName, double worldRecord,
 
 void Start::searchDiscipline(string disciplineName) {
 
+
+
 	for (size_t i = 0 ; i < m_discipline.size(); i++) {
 	        if (m_discipline.at(i).getDisciplineName() == disciplineName) {
 	        	m_discipline.at(i).disciplineInfo();
-	        }
-	        else{
-	            cout << "athlet not found " << endl ;
-	        }
 
+	        }
 	    }
-
 }
-
-//Disciplines Start::getDiscipline(){
-//    return m_discipline;
-//}
-

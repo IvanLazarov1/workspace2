@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Athlets::Athlets(string fName,string lName,string country, double bestOf, string disciplineName){
+Athlets::Athlets(string fName, string lName, string country, double bestOf, string disciplineName){
 
     m_fName   = fName;
     m_lName   = lName;
@@ -14,8 +14,7 @@ Athlets::Athlets(string fName,string lName,string country, double bestOf, string
     m_disciplineName = disciplineName;
 }
 
-Athlets::~Athlets()
-{
+Athlets::~Athlets(){
 
 }
 

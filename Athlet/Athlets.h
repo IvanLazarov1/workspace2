@@ -12,7 +12,7 @@ class Athlets{
 
 public:
 
-    Athlets(string fName = "",string lName="",string country="", double bestOf= 0, string disciplineName = "");
+    Athlets(string fName = "", string lName="", string country="", double bestOf= 0, string disciplineName = "");
     virtual ~Athlets();
 
     void setFName(string);

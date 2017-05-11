@@ -7,9 +7,10 @@
 #include "Athlets.h"
 #include "Disciplines.h"
 
+
 using namespace std;
 
-class Start{
+class Start {
 
 public:
 
@@ -36,7 +37,6 @@ public:
 private:
 
     vector<Athlets> m_athletes;
-   // Disciplines m_discipline;
     vector<Disciplines> m_discipline;
     string m_data;
     string m_hour;
