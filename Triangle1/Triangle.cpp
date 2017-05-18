@@ -81,6 +81,66 @@ int Triangle::getZ() const {
 	return m_z;
 }
 
+bool Triangle::operator >(const Triangle& right) {
+
+	return this->m_x > right.m_x && this->m_y > right.m_y && this->m_z > right.m_z && this->m_h > right.m_h;
+
+}
+
+bool Triangle::operator <(const Triangle& right) {
+
+	return this->m_x < right.m_x && this->m_y < right.m_y && this->m_z < right.m_z && this->m_h < right.m_h;
+
+}
+
 void Triangle::setZ(int z) {
 	m_z = z;
+}
+
+Triangle& Triangle::operator -(Triangle& right) {
+
+	int newX = this ->m_x - right.m_x;
+	int newY = this ->m_y - right.m_y;
+	int newZ = this ->m_z - right.m_z;
+	int newH = this ->m_h - right.m_h;
+
+	Triangle *result = new Triangle(newX, newY, newZ, newH);
+	return *result;
+
+}
+
+Triangle& Triangle::operator +(Triangle& right) {
+
+	int newX = this ->m_x + right.m_x;
+	int newY = this ->m_y + right.m_y;
+	int newZ = this ->m_z + right.m_z;
+	int newH = this ->m_h + right.m_h;
+
+	Triangle *result = new Triangle(newX, newY, newZ, newH);
+	return *result;
+
+}
+
+Triangle& Triangle::operator *(Triangle& right) {
+
+	int newX = this ->m_x * right.m_x;
+	int newY = this ->m_y * right.m_y;
+	int newZ = this ->m_z * right.m_z;
+	int newH = this ->m_h * right.m_h;
+
+	Triangle *result = new Triangle(newX, newY, newZ, newH);
+	return *result;
+
+}
+
+Triangle& Triangle::operator /(Triangle& right) {
+
+	int newX = this ->m_x / right.m_x;
+	int newY = this ->m_y / right.m_y;
+	int newZ = this ->m_z / right.m_z;
+	int newH = this ->m_h / right.m_h;
+
+	Triangle *result = new Triangle(newX, newY, newZ, newH);
+	return *result;
+
 }

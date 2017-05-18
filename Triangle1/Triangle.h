@@ -22,6 +22,13 @@ public:
 
 	bool operator==(const Triangle &);
 	bool operator!=(const Triangle &);
+	bool operator>(const Triangle &);
+	bool operator<(const Triangle &);
+
+	Triangle& operator - (Triangle&);
+	Triangle& operator + (Triangle&);
+	Triangle& operator * (Triangle&);
+	Triangle& operator / (Triangle&);
 
 	int getH() const;
 	void setH(int h);
