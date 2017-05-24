@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<Students xmlns="http://www.w3.org/TR/html4/">
+	<Student id="1">
+		<Name>Student name</Name>
+		<Telphone>0987654</Telphone>
+		<Email>qwe@abv.bg</Email>
+		<Exams>
+			<Exam Name="Himiq" Teacher="1" Grades="1,2,3">Exam description</Exam>
+			<Exam Name="Biologiq" Teacher="2" Grades="2">Exam description</Exam>
+			<Exam Name="Fizika" Teacher="3" Grades="3">Exam description</Exam>
+		</Exams>
+	</Student>
+</Students>
