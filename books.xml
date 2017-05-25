@@ -11,7 +11,7 @@
    </book>
    <book id="bk102">
       <author>Ralls, Kim</author>
-      <title id="123" Filename="555">Midnight Rain</title>
+      <title>Midnight Rain</title>
       <genre>Fantasy</genre>
       <price>5.95</price>
       <publish_date>2000-12-16</publish_date>
@@ -89,7 +89,7 @@
    </book>
    <book id="bk110">
       <author>O'Brien, Tim</author>
-      <title>Microsoft .NET: The Programming Bible</title>
+      <title>Microsoft .NET:</title>
       <genre>Computer</genre>
       <price>36.95</price>
       <publish_date>2000-12-09</publish_date>
@@ -98,7 +98,7 @@
    </book>
    <book id="bk111">
       <author>O'Brien, Tim</author>
-      <title>MSXML3: A Comprehensive Guide</title>
+      <title>MSXML3</title>
       <genre>Computer</genre>
       <price>36.95</price>
       <publish_date>2000-12-01</publish_date>
@@ -108,7 +108,7 @@
    </book>
    <book id="bk112">
       <author>Galos, Mike</author>
-      <title>Visual Studio 7: A Comprehensive Guide</title>
+      <title>Visual Studio 7</title>
       <genre>Computer</genre>
       <price>49.95</price>
       <publish_date>2001-04-16</publish_date>

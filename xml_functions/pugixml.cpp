@@ -6798,7 +6798,7 @@ namespace pugi
 		}
 	}
 
-	PUGI__FN xml_document::xml_document(): _buffer(0)
+ 	PUGI__FN xml_document::xml_document(): _buffer(0)
 	{
 		_create();
 	}

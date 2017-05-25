@@ -17,15 +17,12 @@ using namespace std;
 
 int main() {
 
-//	operations on xml file
-
 //	operation.readFromXmlFile();
 //	operation.modify();
-	operation.WriteNewXmlFile();
-
-
-
-
+//	operation.WriteNewXmlFile();
+	operation.readFromXmlFileWriteToTxtFile();
+//	operation.searchInXmlByAttrValue();
+//	operation.readBooksTitle();
 
 	return 0;
 }

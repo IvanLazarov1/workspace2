@@ -17,7 +17,7 @@ class BookStore {
 
 public:
 
-	BookStore();
+	BookStore(string author = "",string title = "", string genre = "", double price = 0.0, string publish_date = "", string description = "");
 	virtual ~BookStore();
 
 	const string& getAuthor() const;

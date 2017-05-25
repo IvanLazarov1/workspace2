@@ -13,6 +13,9 @@
 #include "BookStore.h"
 #include <string>
 #include <vector>
+#include <iomanip>
+#include <fstream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -26,6 +29,9 @@ public:
 	void readFromXmlFile();
 	void modify();
 	void WriteNewXmlFile();
+	void readFromXmlFileWriteToTxtFile();
+	void searchInXmlByAttrValue();
+	void readBooksTitle();
 
 
 };

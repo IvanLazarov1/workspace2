@@ -9,8 +9,14 @@
 
 using namespace std;
 
-BookStore::BookStore() {
-	// Auto-generated constructor stub
+BookStore::BookStore(string author, string title, string genre, double price, string publish_date, string description) {
+
+	setAuthor(author);
+	setTitle(title);
+	setGenre(genre);
+	setPrice(price);
+	setPublishDate(publish_date);
+	setDescription(description);
 
 }
 
