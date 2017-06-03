@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<cinema>
+	<screening id="1">
+		<filmname>Batman</filmname>
+		<hall>hallname1</hall>
+		<capacity>100</capacity>
+		<soldtickets>50</soldtickets>
+		<pricepertickets>10</pricepertickets>
+	</screening>
+	<screening id="2">
+		<filmname>Spiderman</filmname>
+		<hall>hallname2</hall>
+		<capacity>200</capacity>
+		<soldtickets>60</soldtickets>
+		<pricepertickets>12</pricepertickets>
+	</screening>
+	<screening id="3">
+		<filmname>Hulk</filmname>
+		<hall>hallname3</hall>
+		<capacity>300</capacity>
+		<soldtickets>70</soldtickets>
+		<pricepertickets>14</pricepertickets>
+	</screening>
+	<screening id="4">
+		<filmname>Ironman</filmname>
+		<hall>hallname4</hall>
+		<capacity>400</capacity>
+		<soldtickets>80</soldtickets>
+		<pricepertickets>16</pricepertickets>
+	</screening>
+	<screening id="5">
+		<filmname>Starwars</filmname>
+		<hall>hallname5</hall>
+		<capacity>500</capacity>
+		<soldtickets>90</soldtickets>
+		<pricepertickets>18</pricepertickets>
+	</screening>
+</cinema>
