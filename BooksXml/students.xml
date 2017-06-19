@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<Students xmlns="http://www.w3.org/TR/html4/">
+	<Student id="1">
+		<First name>Student first name</First name>
+		<Last name>Student last name</Last name>
+		<Gender>Student gender</Gender>
+		<Telephone>0888654789</Telephone>
+		<Email>email@abv.bg</Email>
+		<Birth date>Student birth date</Birth date>
+		<Course>Student course</Course>
+		<Specialty>Student specialty</Specialty>
+		<Faculty number>Student faculty number</Faculty number>
+		<Exams>
+			<Exam Name="Himiq" Teacher="Teacher name" Grades="5">Exam description</Exam>
+			<Exam Name="Biologiq" Teacher="Teacher name" Grades="6">Exam description</Exam>
+			<Exam Name="Fizika" Teacher="Teacher name" Grades="4">Exam description</Exam>
+		</Exams>
+	</Student>
+</Students>

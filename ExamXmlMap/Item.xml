@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<Catalog>
+	<Item>
+		<name id="1">Laptop</name>
+		<price>1500</price>
+		<quantity>33</quantity>
+	</Item>
+	<Item>
+		<name id="2">Monitor</name>
+		<price>350</price>
+		<quantity>52</quantity>
+	</Item>
+	<Item>
+		<name id="3">Printer</name>
+		<price>150</price>
+		<quantity>15</quantity>
+	</Item>
+</Catalog>

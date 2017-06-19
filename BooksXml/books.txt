@@ -1,0 +1,12 @@
+Author : Gambardella, Matthew  Title : XML Developer's Guide    Genre : Computer        Price : 44.95          
+Author : Ralls, Kim            Title : Midnight Rain            Genre : Fantasy         Price : 5.95           
+Author : Corets, Eva           Title : Maeve Ascendant          Genre : Fantasy         Price : 5.95           
+Author : Corets, Eva           Title : Oberon's Legacy          Genre : Fantasy         Price : 5.95           
+Author : Corets, Eva           Title : The Sundered Grail       Genre : Fantasy         Price : 5.95           
+Author : Randall, Cynthia      Title : Lover Birds              Genre : Romance         Price : 4.95           
+Author : Thurman, Paula        Title : Splish Splash            Genre : Romance         Price : 4.95           
+Author : Knorr, Stefan         Title : Creepy Crawlies          Genre : Horror          Price : 4.95           
+Author : Kress, Peter          Title : Paradox Lost             Genre : Science Fiction Price : 6.95           
+Author : O'Brien, Tim          Title : Microsoft .NET:          Genre : Computer        Price : 36.95          
+Author : O'Brien, Tim          Title : MSXML3                   Genre : Computer        Price : 36.95          
+Author : Galos, Mike           Title : Visual Studio 7          Genre : Computer        Price : 49.95          

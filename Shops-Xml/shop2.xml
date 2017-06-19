@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<shop2>
+   <item id="1">
+      <name>Television</name>
+      <brand>Sony</brand>
+      <model>bravia</model>
+      <soldquantity>5</soldquantity>
+      <price>1560</price>
+   </item>
+   <item id="2">
+      <name>Washing machine</name>
+      <brand>Bosh</brand>
+      <model>M101</model>
+      <soldquantity>6</soldquantity>
+      <price>340</price>
+   </item>
+   <item id="3">
+      <name>Cooker</name>
+      <brand>Miele</brand>
+      <model>M102</model>
+      <soldquantity>8</soldquantity>
+      <price>12540</price>
+   </item>
+   <item id="4">
+      <name>Console Game</name>
+      <brand>Sony</brand>
+      <model>Playstation</model>
+      <soldquantity>7</soldquantity>
+      <price>840</price>
+   </item>
+</shop2>

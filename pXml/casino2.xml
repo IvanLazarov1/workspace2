@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<hall>
+	<game>
+		<id>1001</id>
+		<name>Roulette</name>
+		<level>2</level>
+		<startcredit>1290</startcredit>
+		<endcredit>500</endcredit>
+	</game>
+	<game>
+		<id>2001</id>
+		<name>Poker</name>
+		<level>3</level>
+		<startcredit>1350</startcredit>
+		<endcredit>600</endcredit>
+	</game>
+	<game>
+		<id>3001</id>
+		<name>Black jack</name>
+		<level>4</level>
+		<startcredit>1790</startcredit>
+		<endcredit>700</endcredit>
+	</game>
+</hall>
