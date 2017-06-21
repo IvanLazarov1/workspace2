@@ -1,6 +1,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_mixer.h>
+#include <SDL_ttf.h>
 #include <stdio.h>
 #include <string>
 #include <vector>
@@ -11,14 +12,15 @@ using namespace std;
 
 const int SCREEN_WIDTH = 1024;
 const int SCREEN_HEIGHT = 768;
-const int CARD_WIDTH = 113; //Shiro4ika
-const int CARD_HEIGHT = 149; //Viso4ina
+const int CARD_WIDTH = 113;		// Shiro4ina
+const int CARD_HEIGHT = 149;	// Viso4ina
 const int ALL_CARDS = 52;
 
 static vector<SDL_Rect> cards;
 static vector<SDL_Rect> fiveCards;
-//The music that will be played
-Mix_Music *gMusic = NULL;
+
+Mix_Music* gMusic = NULL;
+TTF_Font* gFont = NULL;
 
 class LTexture
 {
@@ -27,12 +29,15 @@ class LTexture
 		~LTexture();
 
 		bool loadFromFile( std::string path );
+		bool loadFromRenderedText( std::string textureText, SDL_Color textColor );
+
 		void free();
 		void render( int x, int y, SDL_Rect* clip = NULL );
 		int getWidth();
 		int getHeight();
 		void setWidth(int);
 		void setHeight(int);
+		void setColor( Uint8 red, Uint8 green, Uint8 blue );
 
 	private:
 
@@ -54,6 +59,7 @@ LTexture gSpriteSheetTexture;
 LTexture gBackground;
 SDL_Texture* gTexture = NULL;
 SDL_Texture* loadTexture( std::string path );
+LTexture gTextTexture;
 
 LTexture::LTexture()
 {
@@ -99,6 +105,40 @@ bool LTexture::loadFromFile( std::string path )
 	return mTexture != NULL;
 }
 
+bool LTexture::loadFromRenderedText( std::string textureText, SDL_Color textColor )
+{
+	//Get rid of preexisting texture
+		free();
+
+		//Render text surface
+		SDL_Surface* textSurface = TTF_RenderText_Solid( gFont, textureText.c_str(), textColor );
+		if( textSurface == NULL )
+		{
+			printf( "Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError() );
+		}
+		else
+		{
+			//Create texture from surface pixels
+	        mTexture = SDL_CreateTextureFromSurface( gRenderer, textSurface );
+			if( mTexture == NULL )
+			{
+				printf( "Unable to create texture from rendered text! SDL Error: %s\n", SDL_GetError() );
+			}
+			else
+			{
+				//Get image dimensions
+				mWidth = textSurface->w;
+				mHeight = textSurface->h;
+			}
+
+			//Get rid of old surface
+			SDL_FreeSurface( textSurface );
+		}
+
+		//Return success
+		return mTexture != NULL;
+}
+
 void LTexture::free()
 {
 	if( mTexture != NULL )
@@ -140,6 +180,11 @@ void LTexture::setWidth(int mWidth)
 void LTexture::setHeight(int mHeight)
 {
     this->mHeight += mHeight;
+}
+void LTexture::setColor( Uint8 red, Uint8 green, Uint8 blue )
+{
+	//Modulate texture rgb
+	SDL_SetTextureColorMod( mTexture, red, green, blue );
 }
 bool init()
 {
@@ -187,6 +232,13 @@ bool init()
 							printf( "SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError() );
 							success = false;
 						}
+
+						//Initialize SDL_ttf
+						if( TTF_Init() == -1 )
+						{
+							printf( "SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError() );
+							success = false;
+						}
 					}
 			}
 	}
@@ -224,7 +276,23 @@ bool loadMedia()
 			srand(time(0));
 			getRandomCards();
 		}
-
+	//Open the font
+	gFont = TTF_OpenFont( "media/Arcanum.ttf", 28 );
+	if( gFont == NULL )
+	{
+		printf( "Failed to load lazy font! SDL_ttf Error: %s\n", TTF_GetError() );
+		success = false;
+	}
+	else
+		{
+			//Render text
+			SDL_Color textColor = { 242, 66, 48 };
+			if( !gTextTexture.loadFromRenderedText( "Five cards draw", textColor ) )
+			{
+				printf( "Failed to render text texture!\n" );
+				success = false;
+			}
+		}
 	return success;
 }
 
@@ -232,7 +300,12 @@ void close()
 {
 	gSpriteSheetTexture.free();
 	gBackground.free();
+	//Free loaded images
+	gTextTexture.free();
 
+	//Free global font
+	TTF_CloseFont( gFont );
+	gFont = NULL;
 	//Free the music
 	Mix_FreeMusic( gMusic );
 	gMusic = NULL;
@@ -240,6 +313,7 @@ void close()
 	SDL_DestroyWindow( gWindow );
 	gWindow = NULL;
 	gRenderer = NULL;
+	TTF_Quit();
 	Mix_Quit();
 	IMG_Quit();
 	SDL_Quit();
@@ -290,7 +364,7 @@ int main( int argc, char* args[] )
 			//Event handler
 			SDL_Event e;
 
-			int x = 0,y = 0;
+			int x = 0, y = 0;
 
 			unsigned counter = 0;
 
@@ -304,8 +378,8 @@ int main( int argc, char* args[] )
 					{
 						SDL_GetMouseState(&x, &y);
 
-						if (x > ((SCREEN_WIDTH /2) - (cards[ ALL_CARDS ].w/2)) && x < ((SCREEN_WIDTH /2) - (cards[ ALL_CARDS ].w/2) + cards[ ALL_CARDS ].w) &&
-							y > ((SCREEN_HEIGHT /2) - (cards[ ALL_CARDS ].h/2)) && y < (SCREEN_HEIGHT /2) - (cards[ ALL_CARDS ].h/2) + cards[ ALL_CARDS ].h)
+						if (x > ((SCREEN_WIDTH / 2) - (cards[ ALL_CARDS ].w / 2 )) && x < ((SCREEN_WIDTH / 2 ) - (cards[ ALL_CARDS ].w / 2) + cards[ ALL_CARDS ].w) &&
+							y > ((SCREEN_HEIGHT / 2) - (cards[ ALL_CARDS ].h/ 2 )) && y < (SCREEN_HEIGHT / 2 ) - (cards[ ALL_CARDS ].h / 2) + cards[ ALL_CARDS ].h)
 						{
 							counter++;
 						}
@@ -333,6 +407,7 @@ int main( int argc, char* args[] )
 				SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
 				SDL_RenderClear( gRenderer );
 				gBackground.render(0,0,NULL);
+				gTextTexture.render( ( SCREEN_WIDTH - gTextTexture.getWidth() ) / 2, ( SCREEN_HEIGHT - gTextTexture.getHeight() ) / 15 );
 				gSpriteSheetTexture.render( (SCREEN_WIDTH /2) - (cards[ ALL_CARDS ].w/2), (SCREEN_HEIGHT /2) - (cards[ ALL_CARDS ].h/2), &cards[ ALL_CARDS ] );
 
 				for (size_t i = 0; i < counter; i++)
