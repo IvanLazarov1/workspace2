@@ -173,7 +173,7 @@ bool init()
 			printf( "Warning: Linear texture filtering not enabled!" );
 		}
 
-		gWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+		gWindow = SDL_CreateWindow( "Shah li e shto li e", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
 		if( gWindow == NULL )
 		{
 			printf( "Window could not be created! SDL Error: %s\n", SDL_GetError() );
@@ -229,6 +229,7 @@ bool loadMedia()
 void close()
 {
 	gFigures.free();
+	gBackground.free();
 	SDL_DestroyRenderer( gRenderer );
 	SDL_DestroyWindow( gWindow );
 	gWindow = NULL;
@@ -307,7 +308,6 @@ int main( int argc, char* args[] )
 					gFigures.render( 470, 445, &vFigures.at( WHITE_POWN ) );
 					gFigures.render( 545, 445, &vFigures.at( WHITE_POWN ) );
 				}
-
 				SDL_RenderPresent( gRenderer );
 			}
 		}
