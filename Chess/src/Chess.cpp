@@ -1,9 +1,3 @@
-/*
-
- 	 Tva trea da e shah uj !
-
- */
-
 #include <SDL.h>
 #include <SDL_image.h>
 #include <stdio.h>
@@ -16,6 +10,9 @@ const int SCREEN_HEIGHT = 624;
 
 const int FIGURE_HEIGHT = 64;
 const int FIGURE_WIDTH = 64;
+
+const int BOARD_HEIGHT = 578;
+const int BOARD_WIDTH = 578;
 
 using namespace std;
 
@@ -36,9 +33,12 @@ enum
 	WHITE_OFFICER,
 	WHITE_POWN,
 };
+
 class LTexture
 {
+
 public:
+
 	LTexture();
 	~LTexture();
 
@@ -254,6 +254,7 @@ int main( int argc, char* args[] )
 		{
 			bool quit = false;
 			SDL_Event e;
+
 			while( !quit )
 			{
 				while( SDL_PollEvent( &e ) != 0 )
@@ -262,6 +263,7 @@ int main( int argc, char* args[] )
 					{
 						quit = true;
 					}
+
 				}
 
 				SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
@@ -269,17 +271,15 @@ int main( int argc, char* args[] )
 
 				gBackground.render( 0, 0, NULL );
 
-				for (size_t i = 0; i < vFigures.size(); i++)
-				{
-					// Black figures
-					gFigures.render( 40, 10, &vFigures.at( BLACK_TOP ) );
-					gFigures.render( 110, 10, &vFigures.at( BLACK_OFFICER ) );
-					gFigures.render( 180, 10, &vFigures.at( BLACK_HORSE ) );
-					gFigures.render( 255, 10, &vFigures.at( BLACK_QUEEN ) );
-					gFigures.render( 330, 10, &vFigures.at( BLACK_KING ) );
-					gFigures.render( 400, 10, &vFigures.at( BLACK_OFFICER ) );
-					gFigures.render( 470, 10, &vFigures.at( BLACK_HORSE ) );
-					gFigures.render( 550, 10, &vFigures.at( BLACK_TOP ) );
+					//Black figures
+					gFigures.render( 40, 15, &vFigures.at( BLACK_TOP ) );
+					gFigures.render( 110, 15, &vFigures.at( BLACK_OFFICER ) );
+					gFigures.render( 180, 15, &vFigures.at( BLACK_HORSE ) );
+					gFigures.render( 255, 15, &vFigures.at( BLACK_QUEEN ) );
+					gFigures.render( 330, 15, &vFigures.at( BLACK_KING ) );
+					gFigures.render( 400, 15, &vFigures.at( BLACK_OFFICER ) );
+					gFigures.render( 470, 15, &vFigures.at( BLACK_HORSE ) );
+					gFigures.render( 550, 15, &vFigures.at( BLACK_TOP ) );
 					// Black powns
 					gFigures.render( 40, 90, &vFigures.at( BLACK_POWN ) );
 					gFigures.render( 110, 90, &vFigures.at( BLACK_POWN ) );
@@ -289,25 +289,26 @@ int main( int argc, char* args[] )
 					gFigures.render( 400, 90, &vFigures.at( BLACK_POWN ) );
 					gFigures.render( 470, 90, &vFigures.at( BLACK_POWN ) );
 					gFigures.render( 550, 90, &vFigures.at( BLACK_POWN ) );
+
 					// White figures
-					gFigures.render( 40, 515, &vFigures.at( WHITE_TOP ) );
-					gFigures.render( 110, 515, &vFigures.at( WHITE_OFFICER ) );
-					gFigures.render( 180, 515, &vFigures.at( WHITE_HORSE ) );
-					gFigures.render( 255, 515, &vFigures.at( WHITE_KING ) );
-					gFigures.render( 330, 515, &vFigures.at( WHITE_QUEEN ) );
-					gFigures.render( 400, 515, &vFigures.at( WHITE_HORSE ) );
-					gFigures.render( 470, 515, &vFigures.at( WHITE_OFFICER ) );
-					gFigures.render( 545, 515, &vFigures.at( WHITE_TOP ) );
+					gFigures.render( 40, 520, &vFigures.at( WHITE_TOP ) );
+					gFigures.render( 110, 520, &vFigures.at( WHITE_OFFICER ) );
+					gFigures.render( 180, 520, &vFigures.at( WHITE_HORSE ) );
+					gFigures.render( 255, 520, &vFigures.at( WHITE_KING ) );
+					gFigures.render( 330, 520, &vFigures.at( WHITE_QUEEN ) );
+					gFigures.render( 400, 520, &vFigures.at( WHITE_HORSE ) );
+					gFigures.render( 470, 520, &vFigures.at( WHITE_OFFICER ) );
+					gFigures.render( 545, 520, &vFigures.at( WHITE_TOP ) );
 					// White powns
-					gFigures.render( 40, 445, &vFigures.at( WHITE_POWN ) );
-					gFigures.render( 110, 445, &vFigures.at( WHITE_POWN ) );
-					gFigures.render( 180, 445, &vFigures.at( WHITE_POWN ) );
-					gFigures.render( 255, 445, &vFigures.at( WHITE_POWN ) );
-					gFigures.render( 330, 445, &vFigures.at( WHITE_POWN ) );
-					gFigures.render( 400, 445, &vFigures.at( WHITE_POWN ) );
-					gFigures.render( 470, 445, &vFigures.at( WHITE_POWN ) );
-					gFigures.render( 545, 445, &vFigures.at( WHITE_POWN ) );
-				}
+					gFigures.render( 40, 450, &vFigures.at( WHITE_POWN ) );
+					gFigures.render( 110, 450, &vFigures.at( WHITE_POWN ) );
+					gFigures.render( 180, 450, &vFigures.at( WHITE_POWN ) );
+					gFigures.render( 255, 450, &vFigures.at( WHITE_POWN ) );
+					gFigures.render( 330, 450, &vFigures.at( WHITE_POWN ) );
+					gFigures.render( 400, 450, &vFigures.at( WHITE_POWN ) );
+					gFigures.render( 470, 450, &vFigures.at( WHITE_POWN ) );
+					gFigures.render( 545, 450, &vFigures.at( WHITE_POWN ) );
+
 				SDL_RenderPresent( gRenderer );
 			}
 		}
